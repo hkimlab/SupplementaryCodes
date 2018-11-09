@@ -1,4 +1,4 @@
-Indel Searcher Instructions:
+Instructions for running Indel Searcher:
 
 IF_batch_run_Github.py serves as the main script that uses the others sequentially.
 
