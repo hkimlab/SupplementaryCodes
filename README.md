@@ -8,7 +8,7 @@ Department of Pharmacology, Yonsei University College of Medicine, Seoul 03722
 
 Please direct comments or questions to:
 
-Jinman Park josephjinpark@yonsei.ac
+Jinman Park josephjinpark@yonsei.ac.kr
 
 
 Supplementary Code 1 - Indel Searcher:
