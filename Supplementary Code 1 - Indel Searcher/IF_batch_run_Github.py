@@ -12,7 +12,6 @@ iChunk_size = 400000 ## split files, must be multiples of 4. file size < 1G reco
 sDATA_DIR   = '/scratch'
 sINPUT_DIR  = '%s/Input'  % sDATA_DIR
 sOUTPUT_DIR = '%s/Output' % sDATA_DIR
-GRABIX      = <PATH to grabix>
 
 class Path_info(object):
 
@@ -64,39 +63,27 @@ class Single_node_controller(Path_info):
 
     def Split_file (self):
 
-        sTempFile  = '%s/linecnt.txt' % self.sInput_path
-        sScript    = 'wc -l %s > %s; ' % (self.sInput_file, sTempFile)
-        os.system(sScript)
+        iTotal_lines = len(open(self.sInput_file).readlines())
+        #iChunk_size = 40000
+        iSplit_num   = iTotal_lines/iChunk_size + 1
+        if iSplit_num == 0: iSplit_num = 1
 
-        iTotal_lines   = int([sReadLine.replace('\n', '').split(' ')[0] for sReadLine in open(sTempFile)][0])
-        sFastqFile_zip = compress_and_index(self.sInput_file)  # Compressed Fastq File for Random Access
+        print(iTotal_lines, iChunk_size, iSplit_num)
 
+        with open(self.sInput_file) as fq, \
+            open(self.sInput_list, 'w') as Out_list:
 
-        list_nBins = [[i + 1, int(iTotal_lines * (i) / nCORES), int(iTotal_lines * (i + 1) / nCORES)-1] for i in
-                      range(nCORES)]
-
-        list_sFiles = []
-        for nIndex, nLineS, nLineE in list_nBins:
-
-            sFileName = '%s.fastq_%s.fq' % (self.sFastq_name, nIndex)
-
-            print(sFileName, nLineS, nLineE)
-
-            list_sFiles.append(sFileName)
-
-            sOutFile = '%s/%s' % (self.sInput_path, sFileName)
-
-            sScript = '%s grab %s %s %s > %s' % (GRABIX, sFastqFile_zip, nLineS, nLineE, sOutFile)
-
-            os.system(sScript)
-        # loop END: nIndex, nCntStop
-
-        OutFile = open('%s/%s.txt' % (self.sInput_path, self.sFastq_name), 'w')
-        for sFileName in list_sFiles:
-            sOut = '%s\n' % sFileName
-            OutFile.write(sOut)
-        OutFile.close()
-    #def END: Split_file_v2
+            for num in range(1, iSplit_num + 1):
+                sSplit_file = '%s/%s_%s.fq' % (self.sInput_path, os.path.basename(self.sInput_file), num)
+                #if not os.path.isfile(sSplit_file):
+                with open(sSplit_file, 'w') as out:
+                    Out_list.write(os.path.basename(sSplit_file) + '\n')
+                    iCount = 0
+                    for sRow in fq:
+                        iCount += 1
+                        out.write(sRow)
+                        if iCount == iChunk_size:
+                            break
     def Make_reference(self):
         with open(self.sBarcode) as Barcode, \
                 open(self.sTarget_seq) as Target, \

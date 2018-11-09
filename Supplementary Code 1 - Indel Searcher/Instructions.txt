@@ -1,0 +1,12 @@
+Indel Searcher Instructions:
+
+IF_batch_run_Github.py serves as the main script that uses the others sequentially.
+
+Provide code requires a number of built-in as well as installed packages:
+
+numpy
+scipy
+pandas
+BioPython
+
+The provided sample data includes a fastq containing reads from deep sequencing and number of reference files that contain information regarding the guide RNA sequence, target site, and barcodes.
