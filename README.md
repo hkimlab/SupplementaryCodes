@@ -2,7 +2,7 @@ In-house scripts used for study entitled,
 
 "Synthetic DNA clock: Recording of elapsed time based on Cas9-directed mutagenesis in human cells"
 
-Jihye Park, Jung Min Lim, Jinman Park, and Hyoungbum Henry Kim
+Jihye Park, Jung Min Lim, Jinman Park, Seok Jae Heo, Hui Kwon Kim, Dongmin Jung, Bukweon Kim, Sungchul Lee, Inkyung Jung, Taeyoung Park, and Hyongbum Henry Kim
 
 Department of Pharmacology, Yonsei University College of Medicine, Seoul 03722
 
