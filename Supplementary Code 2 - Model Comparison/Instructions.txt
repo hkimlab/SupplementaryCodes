@@ -4,4 +4,4 @@ The R script can be initalized using any R editors such as RStudio, https://www.
 
 The scripts includes install commands for the R packages used.
 
-The provided sample data includes is a data file cataloging the results from the Indel Searcher.
+The provided sample data includes is a data file cataloging the results from Supplementary Code 1 - Indel Searcher.
