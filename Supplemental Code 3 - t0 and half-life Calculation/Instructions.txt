@@ -1,4 +1,4 @@
-Instructions for running t0 and HL Calculations:
+Instructions for running t0 and half-life calculations:
 
 The R script can be initalized using any R editors such as RStudio, https://www.rstudio.com/, or conducted in linux environments.
 
