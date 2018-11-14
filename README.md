@@ -19,6 +19,6 @@ Supplemental Code 2 - Model Comparison:
 
 Compares Akaike information criterion (AIC) and Bayesian information criterion (BIC) for linear, exponential, Gompertz, and logistic models to best describe our data.
 
-Supplemental Code 3 - t0 and Half-life (HL) Calculations:
+Supplemental Code 3 - t0 and half-life Calculations:
 
-A general HL and t0 was determined using the best-fitting model that produces the minimal residual sum of squares.
+A general half-life and t0 was determined using the best-fitting model that produces the minimal residual sum of squares.
