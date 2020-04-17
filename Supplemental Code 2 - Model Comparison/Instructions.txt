@@ -1,7 +1,0 @@
-Instructions for running Model Comparison:
-
-The R script can be initalized using any R editors such as RStudio, https://www.rstudio.com/, or conducted in linux environments.
-
-The scripts includes install commands for the R packages used.
-
-The provided sample data includes is a data file cataloging the results from Supplemental Code 1 - Indel Searcher.
